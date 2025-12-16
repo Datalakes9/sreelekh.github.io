@@ -1,0 +1,15 @@
+---
+interface Props {
+  title: string;
+  content: string;
+}
+
+const { title, content } = Astro.props;
+---
+
+<div class="card bg-base-200 shadow-xl mb-8">
+    <div class="card-body">
+        <h2 class="card-title text-2xl mb-4">{title}</h2>
+        <p class="text-base leading-relaxed">{content}</p>
+    </div>
+</div>

@@ -1,0 +1,43 @@
+---
+import { Image } from 'astro:assets';
+import type { Person } from '@/types/people';
+
+interface Props {
+    person: Person;
+}
+
+const { person } = Astro.props;
+---
+<div class="card bg-base-200 shadow-xl mb-10 p-6">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-center">
+        <div class="md:col-span-1 flex justify-center">
+            <Image
+                src={person.photoAsset}
+                alt={`Profile picture of ${person.name}`}
+                class='mask mask-circle w-full max-w-56 h-auto object-cover'
+            />
+        </div>
+        
+        <div class="md:col-span-2">
+            <h2 class="text-3xl font-bold mb-2">{person.name}</h2>
+            <h3 class="text-xl font-semibold text-accent mb-4">{person.title}</h3>
+            
+            <p class="text-base leading-relaxed mb-6">
+                {person.bio}
+            </p>
+
+            {/* CV Download Link */}
+            {person.cvPath && (
+                <a 
+                    href={person.cvPath} 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    class="btn btn-primary btn-sm text-primary-content"
+                    download
+                >
+                    Download CV (PDF)
+                </a>
+            )}
+        </div>
+    </div>
+</div>

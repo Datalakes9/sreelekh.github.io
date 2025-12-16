@@ -21,7 +21,7 @@ export const profile = {
 // Set equal to an empty string to hide the icon that you don't want to display
 export const social = {
 	email: "sreelekha[dot]guggilam[at]tamucc[dot]edu", // Update this
-	github: "https://github.com/sreelekh", // Verify this URL
+	github: "https://github.com/Datalakes9", // Verify this URL
 	gitlab: "", // Add if you have GitLab
 	linkedin: "https://www.linkedin.com/in/sreelekhaguggilam", // Verify this URL
 	scholar: "https://scholar.google.com/citations?user=tzu0AM8AAAAJ&hl=en&authuser=1", // Add Google Scholar URL
@@ -31,7 +31,7 @@ export const social = {
 }
 
 export const template = {
-	website_url: 'https://sreelekh.github.io/', // Astro needs to know your site’s deployed URL to generate a sitemap. It must start with http:// or https://
+	website_url: 'https://sreelekha.guggilam.github.io/', // Astro needs to know your site’s deployed URL to generate a sitemap. It must start with http:// or https://
 	menu_left: false,
 	transitions: true,
 	darkTheme: 'dark', // Select one of the Daisy UI Themes or create your own
@@ -55,7 +55,7 @@ export const settings = {
 	author: "S. Guggilam",
 	socialLinks: {
 		linkedin: "https://linkedin.com/in/sreelekhaguggilam",
-		github: "https://github.com/sreelekh",
+		github: "https://github.com/Datalakes9",
 		email: "sreelekha[dot]guggilam[at]tamucc[dot]edu",
 		orcid: "", // Add ORCID if available
 		googleScholar: "", // Add Google Scholar profile if available

@@ -1,0 +1,44 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import Grid from "@/components/ui/Grid.astro";
+
+// Example structure for projects. You can replace this later with imports from a data file.
+const exampleProjects = [
+  {
+    title: "Time-Series Foundation Models",
+    description: "Developing novel foundation models for multivariate time-series data analysis and forecasting, with a focus on real-world oceanographic applications."
+  },
+  {
+    title: "Quantum Anomaly Detection",
+    description: "Investigating and implementing quantum computing algorithms for non-parametric anomaly detection in high-dimensional spatiotemporal datasets."
+  },
+  {
+    title: "GeoAI for Outbreak Prediction",
+    description: "Using machine learning and geospatial data to model and predict the spread of zoonotic diseases based on environmental tipping points."
+  }
+];
+---
+
+<Layout title="Projects">
+  <div class="prose max-w-none">
+    <h1 class="text-3xl font-bold mb-8">Research Projects</h1>
+
+    <div class="mb-12">
+        <p class="text-lg text-base-content/90 mb-6">
+            My research projects cover a range of topics in data science, machine learning, and spatio-temporal modeling, often utilizing interdisciplinary methods.
+        </p>
+    </div>
+
+    {/* Using the existing Grid component to display project cards */}
+    <Grid gridTitle="Current & Recent Projects" gridItems={exampleProjects} />
+
+    <div class="pt-8">
+        <h2 class="text-2xl font-bold mb-4">Project Opportunities</h2>
+        <div class="card bg-base-100 border border-base-content/10">
+            <div class="card-body">
+                <p class="text-lg">For student-specific project opportunities, please refer to the <a href="/" class="text-accent hover:underline">Open Positions</a> section on the Home page.</p>
+            </div>
+        </div>
+    </div>
+  </div>
+</Layout>
