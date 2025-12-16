@@ -1,16 +1,9 @@
-// @ts-check
-import { defineConfig } from "astro/config";
+// astro.config.mjs (Create or Update this file)
+import { defineConfig } from 'astro/config';
 
-import react from "@astrojs/react";
-import tailwind from "@astrojs/tailwind";
-
-import { template } from "./src/settings";
-
-import sitemap from "@astrojs/sitemap";
-
-// https://astro.build/config
 export default defineConfig({
-    integrations: [react(), tailwind(), sitemap()],
-    site: template.website_url,
-    base: template.base,
+  site: 'https://sreelekha.guggilam.github.io', // REPLACE with your root domain
+  base: '/sreelekha.guggilam.github.io/', // Should match template.base in src/settings.ts
+  output: 'static', // Ensure a static build is generated
+  // ... other configs (like integrations)
 });
