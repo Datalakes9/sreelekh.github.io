@@ -1,17 +1,13 @@
 import { defineConfig } from 'astro/config';
 import tailwind from '@astrojs/tailwind';
 
-const SITE_URL = 'https://sreelekha.guggilam.github.io/'; 
-const REPO_BASE_PATH = '/'; 
-
 export default defineConfig({
-  site: SITE_URL,
-  base: REPO_BASE_PATH,
+  // FIX: Match these to your GitHub URL
+  site: 'https://datalakes9.github.io',
+  base: '/sreelekha.guggilam.github.io/', 
   output: 'static',
-  integrations: [
-    tailwind(),
-  ],
-  // REMOVED the "image" block entirely as it is built-in now
+  integrations: [tailwind()],
+  // Ensure we don't have the old '@astrojs/image' block here
   vite: {
     resolve: {
       alias: {

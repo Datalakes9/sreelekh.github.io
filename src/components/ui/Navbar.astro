@@ -1,74 +1,43 @@
 ---
 import { Image } from 'astro:assets'
-import { profile } from '@/settings'
+import { profile, template } from '@/settings'
 import SocialIcons from './SocialIcons.astro'
 import ProfilePictures from '../../assets/profile_pictures.jpg'
 import { getCollection } from 'astro:content'
-import { template } from '@/settings'
 
-// FIX: Safely check for the blog collection to prevent the "collection does not exist" error
+// FIX: Prevent build crash if blog folder is empty
 const blogEntries = await getCollection('blog').catch(() => []);
 const isBlogPopulated = blogEntries && blogEntries.length > 0;
 
 const { fullName, title, position } = profile
 ---
 
-<aside
-	class='px-4 pt-4 h-screen w-[20rem] bg-base-200 text-base-content flex flex-col'
->
-	<div class='flex flex-col my-8 justify-between h-full overflow-hidden'>
-		<div class="flex-none">
-			<div class='flex justify-center items-center flex-col'>
-				<Image
-					class='mask mask-circle size-44'
-					src={ProfilePictures}
-					alt={`Profile picture of ${fullName}`}
-					loading="eager"
-				/>
-				<h1 class="text-lg font-black mt-8 hidden lg:block text-center">{title} <span>{fullName}</span></h1>
-				<h2 class="text-center"> <span>{position}</span></h2>
-			</div>
-		</div>
-		<div class='mx-4 mt-8 flex-1 overflow-y-auto scrollbar-hide'>
-			<ul class='space-y-2 menu menu-md'>
-				<li>
-					<a href="/" class='text-lg'>Home</a>
-				</li>
-				<li>
-					<a href="/publications" class='text-lg'>Publications</a>
-				</li>
-				<li>
-					<a href="/cv" class='text-lg'>CV</a>
-				</li>
-				<li>
-					<a href="/people" class='text-lg'>People</a>
-				</li>
-				<li>
-					<a href="/projects" class='text-lg'>Projects</a>
-				</li>
- 
-				{isBlogPopulated && (
-					<li>
-						<a href="/blog/1" class='text-lg'>News</a>
-					</li>
-				)}
-			</ul>
-		</div>
-		<div class='mx-4 mt-4 pt-4 border-t border-base-content/10 flex-none'>
-			<SocialIcons/>
-		</div>
-		</div>
+<aside class='px-4 pt-4 h-screen w-[20rem] bg-base-200 text-base-content flex flex-col'>
+    <div class='flex flex-col my-8 justify-between h-full overflow-hidden'>
+        <div class="flex-none text-center">
+            <Image
+                class='mask mask-circle size-44 mx-auto'
+                src={ProfilePictures}
+                alt={fullName}
+                loading="eager"
+            />
+            <h1 class="text-lg font-black mt-8">{title} {fullName}</h1>
+            <p class="text-sm opacity-80">{position}</p>
+        </div>
+
+        <div class='mx-4 mt-8 flex-1 overflow-y-auto'>
+            <ul class='space-y-2 menu menu-md'>
+                <li><a href=`${template.base}/` class='text-lg'>Home</a></li>
+                <li><a href=`${template.base}/publications` class='text-lg'>Publications</a></li>
+                <li><a href=`${template.base}/cv` class='text-lg'>CV</a></li>
+                <li><a href=`${template.base}/people` class='text-lg'>People</a></li>
+                <li><a href=`${template.base}/projects` class='text-lg'>Projects</a></li>
+                {isBlogPopulated && <li><a href=`${template.base}/blog/1` class='text-lg'>News</a></li>}
+            </ul>
+        </div>
+
+        <div class='mx-4 mt-4 pt-4 border-t border-base-content/10 flex-none'>
+            <SocialIcons/>
+        </div>
+    </div>
 </aside>
-
-<style>
-	/* Hides scrollbar for Chrome, Safari and Opera */
-	.scrollbar-hide::-webkit-scrollbar {
-		display: none;
-	}
-
-	/* Hides scrollbar for IE, Edge and Firefox */
-	.scrollbar-hide {
-		-ms-overflow-style: none;  /* IE and Edge */
-		scrollbar-width: none;  /* Firefox */
-	}
-</style>
