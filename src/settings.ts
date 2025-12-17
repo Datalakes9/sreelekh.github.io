@@ -33,12 +33,12 @@ export const social = {
 export const template = {
 	website_url: 'https://sreelekha.guggilam.github.io/', // Astro needs to know your site’s deployed URL to generate a sitemap. It must start with http:// or https://
 	menu_left: false,
-	transitions: true,
+	transitions: false,
 	darkTheme: 'dark', // Select one of the Daisy UI Themes or create your own
 	lightTheme: 'light', // Select one of the Daisy UI Themes or create your own
 	excerptLength: 200,
 	postPerPage: 5,
-	base: 'sreelekha.guggilam.github.io' // Repository name starting with /
+	base: '/' // Repository name starting with /
 }
 
 export const seo = {
