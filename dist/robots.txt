@@ -2,4 +2,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://sreelekha.guggilam.github.io/sitemap-index.xml
+Sitemap: https://datalakes9.github.io/sreelekha.guggilam.github.io/sitemap-index.xml
